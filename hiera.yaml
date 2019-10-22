@@ -11,11 +11,6 @@ hierarchy:
       - "nodes/%{trusted.certname}.yaml"
       - "common.yaml"
 
-  - name: "Shared between environments Yaml backend"
-    data_hash: yaml_data
-    paths:
-      - "/etc/puppetlabs/code/shared-hieradata/common.yaml"
-
   - name: "Consul"
     lookup_key: hiera_http
     uris:
