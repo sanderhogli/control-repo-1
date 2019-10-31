@@ -48,3 +48,4 @@ mod 'puppetlabs-git',         '0.5.0'
 
 # Sensu
 mod 'sensu-sensu',            '3.9.0'
+mod 'puppetlabs-apt',         '7.2.0'
