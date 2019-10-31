@@ -12,10 +12,5 @@ class profile::sensu::agent_windows {
     interval      => 60,
     subscriptions => ['windows'],
   }
-  class { 'sensu::plugins':
-    plugins => {
-      'disk-checks' => { 'version' => 'latest' },
-    },
-  }
 
 }
