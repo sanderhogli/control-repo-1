@@ -6,11 +6,15 @@ class profile::sensu::agent_windows {
       'subscriptions' => ['windows'],
     },
   }
-  sensu_check { 'check-cpu':
-    ensure        => 'present',
-    command       => 'check-cpu.sh -w 75 -c 90',
-    interval      => 60,
-    subscriptions => ['windows'],
+
+  file { 'C:\ProgramData\SensuPlugins':
+    ensure => directory,
+  }
+  vcsrepo { 'C:\ProgramData\SensuPlugins\sensu-plugins-windows':
+    ensure   => present,
+    provider => git,
+    source   => 'https://github.com/sensu-plugins/sensu-plugins-windows.git',
+    require  => File['C:\ProgramData\SensuPlugins'],
   }
 
 }

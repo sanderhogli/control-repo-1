@@ -6,15 +6,11 @@ class profile::sensu::agent_linux {
       'subscriptions' => ['linux'],
     },
   }
-  sensu_check { 'check-cpu in default':
-    ensure        => 'present',
-    command       => 'check-cpu.sh -w 75 -c 90',
-    interval      => 60,
-    subscriptions => ['linux'],
-  }
+
   class { 'sensu::plugins':
     plugins => {
-      'disk-checks' => { 'version' => 'latest' },
+      'disk-checks' => { 'version' => '5.0.0' },
+      'cpu-checks'  => { 'version' => '4.0.0' },
     },
   }
 
