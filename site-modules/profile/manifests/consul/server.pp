@@ -5,7 +5,7 @@ class profile::consul::server {
   }
 
   class { '::consul':
-    version     => '1.6.0',
+    version     => '1.6.2',
     config_hash => {
       'bootstrap_expect' => 3,
       'data_dir'         => '/opt/consul',

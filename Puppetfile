@@ -18,7 +18,7 @@ forge 'https://forge.puppet.com'
 #
 
 # From previous lab
-mod 'KyleAnderson-consul',    '5.1.0'
+mod 'KyleAnderson-consul',    '6.0.1'
 mod 'camptocamp-systemd',     '2.6.0'
 mod 'crayfishx-hiera_http',   '3.4.0'
 mod 'puppet-archive',         '3.2.1'
