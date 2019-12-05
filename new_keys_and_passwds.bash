@@ -14,6 +14,9 @@ echo "base_linux::root_ssh_key: $(cut -d ' ' -f 2 /root/.ssh/id_rsa.pub)" >> /et
 # Password for Sensu backend
 echo "sensu::backend::password: $(pwgen -s 16 1)" >> /etc/puppetlabs/code/shared-hieradata/common.yaml
 
+# Password for AD
+echo "profile::ad::server::password: $(pwgen 12 1)" >> /etc/puppetlabs/code/shared-hieradata/common.yaml
+
 # THIS TYPICALLY SHOULD BE MOVED TO A SEPARATE SCRIPT AND EXECUTED
 # ONCE IN THE GIT REPO AND COMMITTED (WHEN USED IN STUDENTS PROJECTS
 # WHERE THIS REPO IS FORKED)
