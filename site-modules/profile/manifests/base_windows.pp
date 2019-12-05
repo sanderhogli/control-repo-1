@@ -37,11 +37,5 @@ class profile::base_windows {
     dsc_issingleinstance => 'yes',
   }
 
-# use PowerShell DSC protect against wannacry :)
-  dsc_windowsfeature {'FS-SMB1': 
-    dsc_ensure => 'absent', 
-    dsc_name   => 'FS-SMB1', 
-  }
-
 }
 
