@@ -1,6 +1,13 @@
 node default {
   notify { "Oops Default! I'm ${facts['hostname']}": }
 }
+node 'winsrv0.node.consul' {
+  include ::profile::base_windows
+  include ::profile::dns::client
+  include ::profile::consul::client
+  include ::profile::sensu::agent_windows
+  include ::profile::ad::server
+}
 node /winsrv\d?.node.consul/ {
   include ::profile::base_windows
   include ::profile::dns::client
