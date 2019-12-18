@@ -1,8 +1,11 @@
 ---
 base_windows::win_sw_pkg:
-          - 'notepadplusplus'
+          - 'less'
           - 'git'
+          - 'vscode'
 base_linux::linux_sw_pkg:
           - 'htop'
           - 'sysstat'
           - 'vim'
+
+secupd::linsec::reboot_time: '02:00'

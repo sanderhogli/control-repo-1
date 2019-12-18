@@ -21,8 +21,8 @@ class profile::ad::server {
     require    => File['C:/NTDS'],
   }
 
-  dsc_xaddomain { 'borg.trek':
-    dsc_domainname                    => 'borg.trek',
+  dsc_xaddomain { 'reskit.org':
+    dsc_domainname                    => 'reskit.org',
     dsc_domainadministratorcredential => {
        'user'     => 'Administrator',
        'password' => Sensitive(lookup('profile::ad::server::password'))

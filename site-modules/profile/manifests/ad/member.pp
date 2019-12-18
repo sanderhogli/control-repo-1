@@ -2,7 +2,7 @@ class profile::ad::member {
 
    $dc_password = Sensitive(lookup('profile::ad::server::password'))
    $ifnames     = keys($::facts['networking']['interfaces'])
-   $winsrv0_ip  = dns_a('winsrv0')[0]
+   $dc1_ip  = dns_a('dc1')[0]
 
    reboot { 'dsc_reboot' :
      message => 'DSC has requested a reboot',
@@ -10,7 +10,7 @@ class profile::ad::member {
    }
 
    dsc_dnsserveraddress { 'DnsServerAddress':
-      dsc_address        => "$winsrv0_ip",
+      dsc_address        => "$dc1_ip",
       dsc_interfacealias => "${ifnames[0]}",
       dsc_addressfamily  => 'IPv4',
    } ->
@@ -25,7 +25,7 @@ class profile::ad::member {
    } ->
    dsc_computer { 'JoinDomain':
      dsc_name       => "${facts['hostname']}",
-     dsc_domainname => 'borg.trek',
+     dsc_domainname => 'reskit.org',
      dsc_credential => {
        'user'     => 'BORG\\Administrator',
        'password' => $dc_password
@@ -37,7 +37,7 @@ class profile::ad::member {
      dsc_name   => 'AD-Domain-Services',
    } ->
    dsc_xwaitforaddomain { 'DscForestWait':
-     dsc_domainname           => 'borg.trek',
+     dsc_domainname           => 'reskit.org',
      dsc_domainusercredential => {
        'user'     => 'BORG\\Administrator',
        'password' => $dc_password
@@ -46,7 +46,7 @@ class profile::ad::member {
      dsc_retryintervalsec     => 30,
    } ->
    dsc_xaddomaincontroller { 'ReplicaDC':
-     dsc_domainname                     => 'borg.trek',
+     dsc_domainname                     => 'reskit.org',
      dsc_domainadministratorcredential  => {
        'user'     => 'BORG\\Administrator',
        'password' => $dc_password

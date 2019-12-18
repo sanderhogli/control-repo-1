@@ -52,3 +52,7 @@ mod 'puppetlabs-apt',         '7.2.0'
 
 # AD
 mod 'dalen-dnsquery',         '3.0.0'
+
+# Updates
+mod 'puppet-unattended_upgrades', '4.0.0'
+
