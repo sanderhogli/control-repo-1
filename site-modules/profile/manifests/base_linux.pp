@@ -38,5 +38,9 @@ class profile::base_linux {
     require => File['/root/.ssh'],
   }
 
+# automatic updates
+
+  include ::profile::secupd::linsec
+
 }
 

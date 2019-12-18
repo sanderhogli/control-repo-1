@@ -37,5 +37,8 @@ class profile::base_windows {
     dsc_issingleinstance => 'yes',
   }
 
+# automatic updates
+  include ::profile::secupd::winsec
+
 }
 
