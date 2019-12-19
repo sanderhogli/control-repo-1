@@ -18,7 +18,7 @@ class profile::ad::client {
      dsc_name       => "${facts['hostname']}",
      dsc_domainname => 'reskit.org',
      dsc_credential => {
-       'user'     => 'BORG\\Administrator',
+       'user'     => 'RESKIT\\Administrator',
        'password' => $dc_password
        },
      notify         => Reboot['dsc_reboot'],

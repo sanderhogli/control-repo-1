@@ -27,7 +27,7 @@ class profile::ad::member {
      dsc_name       => "${facts['hostname']}",
      dsc_domainname => 'reskit.org',
      dsc_credential => {
-       'user'     => 'BORG\\Administrator',
+       'user'     => 'RESKIT\\Administrator',
        'password' => $dc_password
        },
      notify         => Reboot['dsc_reboot'],
@@ -39,7 +39,7 @@ class profile::ad::member {
    dsc_xwaitforaddomain { 'DscForestWait':
      dsc_domainname           => 'reskit.org',
      dsc_domainusercredential => {
-       'user'     => 'BORG\\Administrator',
+       'user'     => 'RESKIT\\Administrator',
        'password' => $dc_password
        },
      dsc_retrycount           => 20,
@@ -48,11 +48,11 @@ class profile::ad::member {
    dsc_xaddomaincontroller { 'ReplicaDC':
      dsc_domainname                     => 'reskit.org',
      dsc_domainadministratorcredential  => {
-       'user'     => 'BORG\\Administrator',
+       'user'     => 'RESKIT\\Administrator',
        'password' => $dc_password
        },
      dsc_safemodeadministratorpassword  => {
-       'user'     => 'BORG\\Administrator',
+       'user'     => 'RESKIT\\Administrator',
        'password' => $dc_password
        },
      notify                             => Reboot['dsc_reboot'],
