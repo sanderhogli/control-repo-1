@@ -27,9 +27,9 @@ class profile::base_windows {
   }
 
 # a specific version of vim I know is trusted
-  package { 'vim':
-    ensure => '8.0.604',
-  }
+#  package { 'vim':
+#    ensure => '8.0.604',
+#  }
 
 # use PowerShell DSC to set timezone
   dsc_xtimezone { 'Oslo':
