@@ -34,6 +34,7 @@ class profile::ad::server {
     dsc_databasepath                  => 'c:\NTDS',
     dsc_logpath                       => 'c:\NTDS',
     subscribe                         => Dsc_windowsfeature['ADDSinstall'],
+    notify                            => Reboot['dsc_reboot'],
   }
 
   reboot {'dsc_reboot':
