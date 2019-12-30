@@ -10,9 +10,11 @@ class profile::base_windows_server {
     dsc_name   => 'FS-SMB1', 
   }
 
-  dsc_windowsfeature { 'RSAT':
+# can't install all of RSAT, do a Get-WindowsFeature and
+# create an array of the ones wanted maybe, just ADDS for now
+  dsc_windowsfeature { 'ADDS':
     dsc_ensure => 'present',
-    dsc_name   => 'RSAT',
+    dsc_name   => 'RSAT-ADDS',
   }
 
 }
