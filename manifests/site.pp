@@ -6,6 +6,10 @@ node /dc1/ {
   include ::role::first_dc
 }
 
+node /dc2/ {
+  include ::role::domain_joined_server
+}
+
 node /srv[1-9]?/ {
   include ::role::domain_joined_server
 }
