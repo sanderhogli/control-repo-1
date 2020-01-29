@@ -12,7 +12,7 @@ class profile::dns::client {
       }
       dsc_dnsclientglobalsetting { 'domainname':
         dsc_issingleinstance => yes,
-        dsc_suffixsearchlist => 'node.consul',
+        dsc_suffixsearchlist => ['reskit.org','node.consul'],
       }
     }
     /^(Debian|Ubuntu)$/: { 
