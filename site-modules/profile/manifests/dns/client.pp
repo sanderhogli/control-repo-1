@@ -1,14 +1,14 @@
 class profile::dns::client {
 
-  $dc1_ip = dns_a('dc1.node.consul')[0]
   $dir_ip = lookup( 'Address', undef, undef, '1.1.1.1' )
 
   case $facts['os']['name'] {
-    'windows': {
-      dsc_dnsserveraddress { 'DnsServerAddress':
-        dsc_address        => $dc1_ip,
+    'windows': { 
+      dsc_dnsserveraddress { $dir_ip:
+        dsc_address        => $dir_ip,
         dsc_interfacealias => $facts['networking']['primary'],
         dsc_addressfamily  => 'IPv4',
+        dsc_validate       => true,
       }
       dsc_dnsclientglobalsetting { 'domainname':
         dsc_issingleinstance => yes,
