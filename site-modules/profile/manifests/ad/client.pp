@@ -6,8 +6,8 @@ class profile::ad::client {
 
    reboot { 'dsc_reboot' :
      message => 'DSC has requested a reboot',
-     when    => 'pending',
-     onlyif  => 'pending_dsc_reboot',
+     when    => pending,
+     onlyif  => pending_dsc_reboot,
    }
 
    dsc_dnsserveraddress { 'DnsServerAddress':

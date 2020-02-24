@@ -40,6 +40,7 @@ class profile::ad::server {
   reboot {'dsc_reboot':
     message => 'DSC has requested a reboot',
     when    => pending,
+    onlyif  => pending_dsc_reboot,
   }
 
 }
