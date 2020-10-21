@@ -1,8 +1,11 @@
-class { 'apache':
-default_vhost => false,
-}
+class profile::apache {
 
-apache::vhost { $::fqdn:
-  port    => '80',
-  docroot => '/var/www/vhost',
+	class { 'apache':
+	default_vhost => false,
+	}
+
+	apache::vhost { $::fqdn:
+	  port    => '80',
+	  docroot => '/var/www/vhost',
+	}
 }
