@@ -56,3 +56,9 @@ mod 'dalen-dnsquery',         '3.0.0'
 # Updates
 mod 'puppet-unattended_upgrades', '4.0.0'
 
+#PROJECT
+
+mod 'puppetlabs-apache', '5.6.0'
+mod 'puppetlabs-mysql', '10.7.1'
+mod 'hunner-wordpress', '1.0.0'
+
