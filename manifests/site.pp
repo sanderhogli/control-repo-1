@@ -17,3 +17,7 @@ node 'mon.node.consul' {
 node 'wp.node.consul' {
   include ::role::wordpress_server
 }
+
+node 'lb.node.consul' {
+  include ::role::loadbalancer_server
+}
