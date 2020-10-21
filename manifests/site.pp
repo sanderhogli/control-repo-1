@@ -21,3 +21,8 @@ node 'wp.node.consul' {
 node 'lb.node.consul' {
   include ::role::loadbalancer_server
 }
+
+node 'db.node.consul' {
+  include ::role::database_server
+}
+
