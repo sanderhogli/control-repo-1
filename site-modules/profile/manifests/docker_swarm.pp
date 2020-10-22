@@ -11,7 +11,7 @@ swarm_cluster {'cluster 1':
     advertise    => $::ipaddress_enp0s8,
     path         => 'swarm',
     }
-  }
+  
 
 
 
