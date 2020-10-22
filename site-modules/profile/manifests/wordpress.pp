@@ -1,7 +1,7 @@
 class profile::wordpress { 
 
 	class {'docker::compose':
-	  ensure => latest,
+	  ensure => present,
 	}
 
 	file { '/tmp/docker-compose.yml':
