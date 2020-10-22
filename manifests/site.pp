@@ -18,11 +18,3 @@ node 'wp.node.consul' {
   include ::role::wordpress_server
 }
 
-node 'lb.node.consul' {
-  include ::role::loadbalancer_server
-}
-
-node 'db.node.consul' {
-  include ::role::database_server
-}
-
