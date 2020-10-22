@@ -4,8 +4,8 @@ $dir_ip = lookup( 'Address', undef, undef, '1.1.1.1' )
 
 docker::swarm {'cluster_manager':
   init           => true,
-  advertise_addr =>  $dir_ip,
-  listen_addr    =>  $dir_ip ,
+  advertise_addr =>  $ipaddres,
+  listen_addr    =>  $facts['networking']['primary'] ,
 }
   
 
