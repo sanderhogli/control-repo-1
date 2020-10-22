@@ -57,5 +57,5 @@ mod 'dalen-dnsquery',         '3.0.0'
 mod 'puppet-unattended_upgrades', '4.0.0'
 
 #PROJECT
-#mod 'puppetlabs-docker', '3.12.1'
+mod 'puppetlabs-docker', '3.12.1'
 mod 'scottyc-docker_swarm', '1.0.2'
