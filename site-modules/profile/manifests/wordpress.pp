@@ -40,7 +40,7 @@ class profile::wordpress {
 	docker_compose { 'test':
 		compose_files => ['/tmp/docker-compose.yml'],
 		ensure  => present,
-		require => [Class['docker], File['/tmp/docker-compose.yml']], 
+		require => [Class['docker'], File['/tmp/docker-compose.yml'], ], 
 	}
 	
 }
