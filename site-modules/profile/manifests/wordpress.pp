@@ -43,6 +43,7 @@ volumes:
 		ensure  => present,
 		require => [File['/tmp/docker-compose.yml'],
 					 Class['docker::compose'], 
-	}				 Class['docker::compose'], ], 
+					 Class['docker::compose'], ], 
+	}
 	
 }
