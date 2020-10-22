@@ -7,43 +7,40 @@ class profile::wordpress {
 	file { '/tmp/docker-compose.yml':
 		ensure  => present,
 		content => "
-version: '3.3'
+			version: '3.3'
 
-services:
-   db:
-     image: mysql:5.7
-     volumes:
-       - db_data:/var/lib/mysql
-     restart: always
-     environment:
-       MYSQL_ROOT_PASSWORD: somewordpress
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wordpress
-       MYSQL_PASSWORD: wordpress
+			services:
+			   db:
+				 image: mysql:5.7
+				 volumes:
+				   - db_data:/var/lib/mysql
+				 restart: always
+				 environment:
+				   MYSQL_ROOT_PASSWORD: somewordpress
+				   MYSQL_DATABASE: wordpress
+				   MYSQL_USER: wordpress
+				   MYSQL_PASSWORD: wordpress
 
-   wordpress:
-     depends_on:
-       - db
-     image: wordpress:latest
-     ports:
-       - \"8000:80\"
-     restart: always
-     environment:
-       WORDPRESS_DB_HOST: db:3306
-       WORDPRESS_DB_USER: wordpress
-       WORDPRESS_DB_PASSWORD: wordpress
-       WORDPRESS_DB_NAME: wordpress
-volumes:
-    db_data: {}
-		"
+			   wordpress:
+				 depends_on:
+				   - db
+				 image: wordpress:latest
+				 ports:
+				   - \"8000:80\"
+				 restart: always
+				 environment:
+				   WORDPRESS_DB_HOST: db:3306
+				   WORDPRESS_DB_USER: wordpress
+				   WORDPRESS_DB_PASSWORD: wordpress
+				   WORDPRESS_DB_NAME: wordpress
+			volumes:
+				db_data: {}"
 	}
 	
 	docker_compose { 'test':
 		compose_files => ['/tmp/docker-compose.yml'],
 		ensure  => present,
-		require => [File['/tmp/docker-compose.yml'],
-					 Class['docker::compose'], 
-					 Class['docker::compose'], ], 
+		require => [File['/tmp/docker-compose.yml'], Class['docker], Class['docker::compose'], ], 
 	}
 	
 }
