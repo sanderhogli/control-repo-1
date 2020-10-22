@@ -1,4 +1,9 @@
 class profile::wordpress { 
+	
+	
+	class { 'docker':
+    dns => '129.241.0.201',
+	}
 
 	class {'docker::compose':
 	  ensure => present,
