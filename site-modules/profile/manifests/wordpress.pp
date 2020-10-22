@@ -41,6 +41,8 @@ volumes:
 	docker_compose { 'test':
 		compose_files => ['/tmp/docker-compose.yml'],
 		ensure  => present,
-	}
+		require => [File['/tmp/docker-compose.yml'],
+					 Class['docker::compose'], 
+	}				 Class['docker::compose'], ], 
 	
 }
