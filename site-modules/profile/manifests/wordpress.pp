@@ -5,7 +5,7 @@ class profile::wordpress {
 	}
 
 	file { '/tmp/docker-compose.yml':
-		ensure  => latest,
+		ensure  => installed,
 		content => "
 version: '3.3'
 
