@@ -21,10 +21,10 @@ services:
        - db_data:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: $mysql_password
+       MYSQL_ROOT_PASSWORD: password
        MYSQL_DATABASE: wordpress
        MYSQL_USER: wordpress
-       MYSQL_PASSWORD: $wordpress_password
+       MYSQL_PASSWORD: password
 
    wordpress:
      depends_on:
@@ -36,7 +36,7 @@ services:
      environment:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: wordpress
-       WORDPRESS_DB_PASSWORD: $wordpress_password
+       WORDPRESS_DB_PASSWORD: password
 volumes:
     db_data: {}
 "
