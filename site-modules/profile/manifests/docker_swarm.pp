@@ -1,7 +1,6 @@
 class profile::docker_swarm {
 	class { 'docker':}
 
-#$token = lookup('docker_swarm::token')
 
 	if $hostname == 'manager' {
 			docker::swarm {'cluster_manager':
@@ -19,6 +18,8 @@ class profile::docker_swarm {
 				command => '/bin/echo  $( /usr/bin/docker swarm join-token worker | tail -2 | cut -d " " -f9) >> /etc/puppetlabs/code/shared-hieradata/common.yaml',
 				}
 	} else {
+	
+	$token = lookup('docker_swarm::token')
 	
 	docker::swarm {'cluster_worker':
 	  join           => true,
