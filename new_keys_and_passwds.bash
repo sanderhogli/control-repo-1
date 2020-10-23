@@ -17,7 +17,6 @@ echo "sensu::backend::password: $(pwgen -s 16 1)" >> /etc/puppetlabs/code/shared
 # Password for AD
 echo "profile::ad::server::password: $(pwgen 12 1)" >> /etc/puppetlabs/code/shared-hieradata/common.yaml
 
-echo "docker_swarm::token: $(docker swarm join-token worker | cut -d "," -f 3 )" >> /etc/puppetlabs/code/shared-hieradata/common.yaml
 
 # THIS TYPICALLY SHOULD BE MOVED TO A SEPARATE SCRIPT AND EXECUTED
 # ONCE IN THE GIT REPO AND COMMITTED (WHEN USED IN STUDENTS PROJECTS
