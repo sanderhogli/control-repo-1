@@ -19,7 +19,7 @@ $token = lookup('docker_swarm::token')
 			exec { 'token2':
 				command => 'echo  $(docker swarm join-token worker | cut -d "," -f 3 ) >> /etc/puppetlabs/code/shared-hieradata/common.yaml',
 				#     => '/usr/local/bin/:/bin/',
-				# path    => [ '/usr/local/bin/', '/bin/' ],  # alternative synt
+				 path    => [ '/usr/local/bin/', '/usr/bin/docker' ],  # alternative synt
 				}
 			  
 	} else {
