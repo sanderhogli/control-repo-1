@@ -1,7 +1,7 @@
 class profile::docker_swarm {
 	class { 'docker':}
 
-$token = lookup('docker_swarm::token')
+#$token = lookup('docker_swarm::token')
 
 	if $hostname == 'manager' {
 			docker::swarm {'cluster_manager':
