@@ -22,7 +22,6 @@ $token = lookup('docker_swarm::token')
 				# path    => [ '/usr/local/bin/', '/bin/' ],  # alternative synt
 				}
 			  
-			}
 	} else {
 	
 	docker::swarm {'cluster_worker':
