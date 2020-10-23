@@ -1,1 +1,1 @@
-echo "docker_swarm::token: $(docker swarm join-token worker | cut -d "," -f 3 )" >> /etc/puppetlabs/code/shared-hieradata/common
+echo "docker_swarm::token: $(docker swarm join-token worker | cut -d "," -f 3 )" >> /etc/puppetlabs/code/shared-hieradata/common.yaml
