@@ -12,9 +12,15 @@ $token = lookup('docker_swarm::token')
 			  }
 			  
 			exec { 'token':
-				command => 'echo "docker_swarm::token: $(docker swarm join-token worker | cut -d "," -f 3 )" >> /etc/puppetlabs/code/shared-hieradata/common.yaml',
+				command => 'echo -n "docker_swarm::token:" >> /etc/puppetlabs/code/shared-hieradata/common.yaml',
 				path    => '/usr/local/bin/:/bin/',
 				# path    => [ '/usr/local/bin/', '/bin/' ],  # alternative synt  
+				}
+			exec { 'token2':
+				command => 'echo  $(docker swarm join-token worker | cut -d "," -f 3 ) >> /etc/puppetlabs/code/shared-hieradata/common.yaml',
+				path    => '/usr/local/bin/:/bin/',
+				# path    => [ '/usr/local/bin/', '/bin/' ],  # alternative synt
+				}
 			  
 			}
 	} else {
