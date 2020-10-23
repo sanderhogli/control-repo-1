@@ -15,7 +15,7 @@ class profile::docker_swarm {
 	  advertise_addr => '192.168.1.2',
 	  listen_addr    => '192.168.1.2',
 	  manager_ip     => '192.168.1.1',
-	  token          => '$docker_worker_join_token',
+	  token          => '$facts[docker_worker_join_token]',
 	}
 	
 	
