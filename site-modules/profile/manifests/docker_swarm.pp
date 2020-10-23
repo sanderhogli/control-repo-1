@@ -12,7 +12,7 @@ class profile::docker_swarm {
 			  }
 			  
 			exec { 'token':
-				command => '/bin/echo  "docker_swarm::token: " >> /etc/puppetlabs/code/shared-hieradata/common.yaml',
+				command => '/bin/echo -n  "docker_swarm::token: " >> /etc/puppetlabs/code/shared-hieradata/common.yaml',
 				}
 			exec { 'token2':
 				command => '/bin/echo  $( /usr/bin/docker swarm join-token worker | cut -d "," -f 3 ) >> /etc/puppetlabs/code/shared-hieradata/common.yaml',
